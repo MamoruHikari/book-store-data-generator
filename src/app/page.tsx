@@ -23,8 +23,9 @@ import {
   AccordionDetails,
   Paper,
   IconButton,
-  Grid,
+  styled
 } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import TableViewIcon from '@mui/icons-material/TableView';
