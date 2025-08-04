@@ -28,7 +28,7 @@ Built with **Next.js** (React) and **Faker** for server-side random data generat
   - The same settings (seed, locale, likes/reviews) always produce the same data, even across sessions.
 - **Realistic Data:**  
   - Titles, authors, publishers, ISBNs, and reviews are generated using [Faker](https://fakerjs.dev/) with language-specific data for authenticity.
-- **Table View (Required):**  
+- **Table View:**  
   - Shows:
     - Index
     - ISBN
@@ -36,7 +36,7 @@ Built with **Next.js** (React) and **Faker** for server-side random data generat
     - Author(s)
     - Publisher
   - Each row is **expandable** to show book cover (with title/author rendered), reviews and review authors.
-- **Gallery View (Optional):**  
+- **Gallery View:**  
   - Switch to a tile-based layout for visual browsing.
 - **CSV Export:**  
   - Exports all currently loaded books to CSV with proper escaping (using a ready-made library).
