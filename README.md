@@ -35,12 +35,6 @@ Built with **Next.js** (React) and **Faker** for server-side random data generat
 
 ---
 
-## 🖼️ Screenshots
-
-> _Add screenshots here of the main page, language selection, infinite scroll, accordion expansion, and CSV export!_
-
----
-
 ## 🛠️ Tech Stack
 
 - **Next.js** (React)
