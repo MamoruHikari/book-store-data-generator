@@ -152,12 +152,12 @@ export default function Home() {
       books.map((b) => ({
         Index: b.index,
         ISBN: b.isbn,
-        [LABELS[locale].title]: b.title,
-        [LABELS[locale].author]: b.authors.join('; '),
-        [LABELS[locale].publisher]: b.publisher,
-        [LABELS[locale].likes]: b.likes,
-        [LABELS[locale].reviewsCount]: b.reviews.length,
-        [LABELS[locale].reviews]: b.reviews.map((r) => `${r.author}: ${r.text}`).join(' | '),
+        [LABELS[locale as keyof typeof LABELS].title]: b.title,
+        [LABELS[locale as keyof typeof LABELS].author]: b.authors.join('; '),
+        [LABELS[locale as keyof typeof LABELS].publisher]: b.publisher,
+        [LABELS[locale as keyof typeof LABELS].likes]: b.likes,
+        [LABELS[locale as keyof typeof LABELS].reviewsCount]: b.reviews.length,
+        [LABELS[locale as keyof typeof LABELS].reviews]: b.reviews.map((r) => `${r.author}: ${r.text}`).join(' | '),
       }))
     );
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
