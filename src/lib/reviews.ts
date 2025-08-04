@@ -37,7 +37,7 @@ export const REVIEWS_ZH = [
   "我还会再读一遍。"
 ];
 
-export function getRandomReview(locale: string, fakerRU: any, randomFn: () => number): string {
+export function getRandomReview(locale: string, fakerRU: Faker, randomFn: () => number): string {
   switch (locale) {
     case 'en':
       return REVIEWS_EN[Math.floor(randomFn() * REVIEWS_EN.length)];
