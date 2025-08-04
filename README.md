@@ -5,6 +5,14 @@ Built with **Next.js** (React) and **Faker** for server-side random data generat
 
 ---
 
+## Live Demo
+
+[Book Store Data Generator - Deployed App](https://book-store-data-generator.onrender.com)
+
+> **Note:** The app is hosted on Render’s free tier, so it might take up to 60 seconds to open due to cold launches.
+
+---
+
 ## ✨ Features
 
 - **Locale & Language Selection:** Choose from multiple languages/regions (English/USA, Turkish/Turkey, Russian/Russia, Chinese/China).
