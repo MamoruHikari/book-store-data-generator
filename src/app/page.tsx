@@ -23,7 +23,7 @@ import {
   AccordionDetails,
   Paper,
   IconButton,
-  Grid
+  Grid,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
@@ -35,7 +35,6 @@ import { LABELS } from '@/lib/labels';
 import { styled } from '@mui/material/styles';
 import { Book } from '@/lib/types/book';
 import { randomSeed } from '@/lib/utils';
-import Image from 'next/image';
 
 const cellClampSx = {
   maxWidth: 180,
@@ -71,6 +70,8 @@ const BookCard = styled(Paper)(({ theme }) => ({
   },
 }));
 
+type Locale = keyof typeof LABELS;
+
 const LOCALES = [
   { code: 'en', label: 'English (US)' },
   { code: 'tr', label: 'Turkish (TR)' },
@@ -83,7 +84,7 @@ const LIMIT_FIRST = 20;
 const LIMIT_NEXT = 10;
 
 export default function Home() {
-  const [locale, setLocale] = useState('en');
+  const [locale, setLocale] = useState<Locale>('en');
   const [seed, setSeed] = useState(INITIAL_SEED);
   const [likesAvg, setLikesAvg] = useState(4.7);
   const [reviewsAvg, setReviewsAvg] = useState("4.7");
@@ -171,14 +172,13 @@ export default function Home() {
   };
 
   const BookCoverImg = ({ title, author }: { title: string; author: string }) => (
-    <Image
+    <img
       src={`/api/book-cover?title=${encodeURIComponent(title)}&author=${encodeURIComponent(author)}`}
       width={96}
       height={128}
       alt={`Cover for ${title} by ${author}`}
       style={{ display: 'block', borderRadius: 8, background: '#eee' }}
       loading="lazy"
-      unoptimized
     />
   );
 
@@ -186,7 +186,7 @@ export default function Home() {
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Paper sx={{ p: 2, mb: 2 }}>
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} sm={3}>
+          <Grid size={{ xs: 12, sm: 2.7 }}>
             <FormControl fullWidth>
               <InputLabel>{LABELS[locale].language}</InputLabel>
               <Select
@@ -202,7 +202,7 @@ export default function Home() {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={8} sm={3}>
+          <Grid size={{ xs: 8, sm: 2 }}>
             <TextField
               label={LABELS[locale].seed}
               value={seed}
@@ -212,12 +212,12 @@ export default function Home() {
               inputProps={{ maxLength: 12 }}
             />
           </Grid>
-          <Grid item xs={4} sm={1}>
+          <Grid size={{ xs: 4, sm: 1 }}>
             <IconButton aria-label={LABELS[locale].seed} onClick={handleRandomSeed}>
               <AutorenewIcon />
             </IconButton>
           </Grid>
-          <Grid item xs={12} sm={2}>
+           <Grid size={{ xs: 12, sm: 2 }}>
             <Typography gutterBottom>{LABELS[locale].likes}</Typography>
             <Slider
               value={likesAvg}
@@ -228,7 +228,7 @@ export default function Home() {
               valueLabelDisplay="auto"
             />
           </Grid>
-          <Grid item xs={12} sm={2}>
+          <Grid size={{ xs: 12, sm: 2 }}>
             <TextField
               label={LABELS[locale].reviews}
               type="number"
@@ -243,7 +243,7 @@ export default function Home() {
               fullWidth
             />
           </Grid>
-          <Grid item xs={2} sm={1}>
+          <Grid size={{ xs: 2, sm: 1 }}>
             <IconButton
               onClick={() => setView('table')}
               color={view === 'table' ? 'primary' : 'default'}
@@ -259,7 +259,7 @@ export default function Home() {
               <ViewModuleIcon />
             </IconButton>
           </Grid>
-          <Grid item xs={12} sm={1}>
+          <Grid size={{ xs: 12, sm: 1 }}>
             <Button
               variant="outlined"
               size="small"
@@ -275,7 +275,7 @@ export default function Home() {
       <Box
         ref={containerRef}
         sx={{
-          height: '60vh',
+          height: '75vh',
           overflowY: 'auto',
           border: '1px solid #eee',
           borderRadius: 2,
