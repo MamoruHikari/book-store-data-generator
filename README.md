@@ -1,4 +1,4 @@
-# Book Store Data Generator Web App
+# Book Store Data Generator
 
 A web app for generating realistic, locale-specific fake book data for bookstore application testing.  
 Built with **Next.js** (React) and **Faker** for server-side random data generation, supporting infinite scrolling, CSV export, and dynamic views.
