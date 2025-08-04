@@ -15,14 +15,14 @@ Built with **Next.js** (React) and **Faker** for server-side random data generat
 - **Dynamic Regeneration:**  
   - Changing any parameter (locale, seed, likes, reviews) instantly regenerates and updates the book list.
 - **Infinite Scrolling:**  
-  - Loads the first 20 records, then dynamically loads 10 more as you scroll down (no paging!).
+  - Loads the first 20 records, then dynamically loads 10 more as you scroll down.
 - **Deterministic Results:**  
   - The same settings (seed, locale, likes/reviews) always produce the same data, even across sessions.
 - **Realistic Data:**  
   - Titles, authors, publishers, ISBNs, and reviews are generated using [Faker](https://fakerjs.dev/) with language-specific data for authenticity.
 - **Table View (Required):**  
   - Shows:
-    - Index (1, 2, 3, ...)
+    - Index
     - ISBN
     - Book Title
     - Author(s)
@@ -40,7 +40,7 @@ Built with **Next.js** (React) and **Faker** for server-side random data generat
 - **Next.js** (React)
 - **Faker.js** (for seeded, locale-specific fake data)
 - **Material UI** (for UI components)
-- **CSV Export:** [PapaParse](https://www.papaparse.com/) (never handcrafted)
+- **CSV Export:** [PapaParse](https://www.papaparse.com/)
 
 ---
 
@@ -59,7 +59,7 @@ Built with **Next.js** (React) and **Faker** for server-side random data generat
 
 ## 📋 Requirements Satisfaction
 
-- [x] **Multiple locale support (at least 3, must include English/USA)**
+- [x] **Multiple locale support**
 - [x] **Seed input/randomization, deterministic results for same seed**
 - [x] **Average likes & reviews sliders (supporting fractional values)**
 - [x] **Dynamic, instant update on any parameter change**
@@ -69,7 +69,7 @@ Built with **Next.js** (React) and **Faker** for server-side random data generat
 - [x] **Titles/authors/publishers/reviews in correct locale/language**
 - [x] **Likes and reviews deterministic, with fractional probability**
 - [x] **Expandable rows: show cover, reviews, etc.**
-- [x] **Optional: gallery view, CSV export (using a library, not manual string building)**
+- [x] **Optional: gallery view, CSV export**
 - [x] **No authentication needed**
 
 ---
@@ -79,7 +79,7 @@ Built with **Next.js** (React) and **Faker** for server-side random data generat
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
+git clone https://github.com/MamoruHikari/book-store-data-generator.git
 cd <your-repo>
 npm install
 ```
@@ -98,54 +98,8 @@ App will be available at `http://localhost:3000/`
 npm run build
 npm run start
 ```
-
----
-
-## ⚙️ Configuration
-
-No special configuration is needed.  
-All data is generated on-demand; no DB or authentication required.
-
----
-
-## 📦 Deployment
-
-- Can be deployed to Vercel, Netlify, or any Node.js-compatible platform.
-- No database or persistent storage required.
-
 ---
 
 ## 📄 License
 
 MIT
-
----
-
-## 🙋 FAQ
-
-### Does it store any data?
-> **No.** All data is generated on-demand on the server using seeded random, and is not persisted.
-
-### Is the data the same if I use the same seed tomorrow?
-> **Yes**, as long as the locale and other parameters are the same.
-
-### Can I use this for other kinds of fake data?
-> Yes, just adjust the generator logic/server route as needed!
-
----
-
-## 👤 Submission Checklist
-
-1. Full name.
-2. Link to deployed project.
-3. Link to source code.
-4. Recorded video demonstration (showing locale switching, infinite scroll, likes/reviews edge cases, seed determinism, etc).
-
----
-
-## 💡 Implementation Notes
-
-- Uses [@faker-js/faker](https://fakerjs.dev/) and its `seed()` API so that all random data (including reviews) is deterministic for the same seed, locale, and batch/offset.
-- Book cover images are generated on the server, with title and author drawn programmatically.
-- All review text is selected from language-appropriate lists or generated using Faker.
-- No hardcoded arrays for book data – always use the library for names, titles, etc (except for a small fixed list of reviews per language, which are randomly picked in a seeded way).
