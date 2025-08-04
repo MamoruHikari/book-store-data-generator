@@ -1,3 +1,5 @@
+import type { Faker } from '@faker-js/faker';
+
 export const REVIEWS_EN = [
   "A fascinating read from start to finish.",
   "Couldn't put it down!",
