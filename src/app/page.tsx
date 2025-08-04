@@ -35,6 +35,7 @@ import { LABELS } from '@/lib/labels';
 import { styled } from '@mui/material/styles';
 import { Book } from '@/lib/types/book';
 import { randomSeed } from '@/lib/utils';
+import Image from 'next/image';
 
 const cellClampSx = {
   maxWidth: 180,
@@ -172,13 +173,14 @@ export default function Home() {
   };
 
   const BookCoverImg = ({ title, author }: { title: string; author: string }) => (
-    <img
+    <Image
       src={`/api/book-cover?title=${encodeURIComponent(title)}&author=${encodeURIComponent(author)}`}
       width={96}
       height={128}
       alt={`Cover for ${title} by ${author}`}
       style={{ display: 'block', borderRadius: 8, background: '#eee' }}
       loading="lazy"
+      unoptimized
     />
   );
 
